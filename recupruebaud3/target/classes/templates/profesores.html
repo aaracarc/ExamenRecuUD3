@@ -1,0 +1,59 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Profesores</title>
+</head>
+<body>
+
+<div class="col-12">
+    <div class="mt-3">
+        <form action="/profesores/crear">
+            <button type="submit" class="btn btn-primary">Crear Profesor</button>
+        </form>
+    </div>
+</div>
+
+<div>
+    Conteo de Profesores Totales
+    <div class="col" th:text="${ProfesorDTO.profesoresTotales}"></div>
+</div>
+
+<div>
+    Conteo total de asignaturas de los catedráticos
+    <div class="col" th:text="${ProfesorDTO.asignaturasTotales}"></div>
+</div>
+
+<div class="row clearfix mb-4">
+    <div class="col">ID</div>
+    <div class="col">NIF</div>
+    <div class="col">Nombre</div>
+    <div class="col">Apellido 1</div>
+    <div class="col">Apellido 2</div>
+    <div class="col">Ciudad</div>
+    <div class="col">Direccion</div>
+    <div class="col">Teléfono</div>
+    <div class="col">Fecha De Nacimiento</div>
+    <div class="col">Tipo</div>
+    <div class="col">Nombre Departamento</div>
+</div>
+
+<div th:each="profesor : ${listaProfesores}" class="row clearfix mb-4 border-bottom">
+    <div th:text="${profesor.id}" class="col"></div>
+    <div th:text="${profesor.nif}" class="col"></div>
+    <div th:text="${profesor.nombre}" class="col"></div>
+    <div th:text="${profesor.apellido1}" class="col"></div>
+    <div th:text="${profesor.apellido2}" class="col"></div>
+    <div th:text="${profesor.ciudad}" class="col"></div>
+    <div th:text="${profesor.direccion}" class="col"></div>
+    <div th:text="${profesor.telefono}" class="col"></div>
+    <div th:text="${profesor.fecha_nacimiento}" class="col"></div>
+    <div th:text="${profesor.tipo}" class="col"></div>
+    <div th:text="${profesor.getDepartamento().nombre}" class="col"></div>
+</div>
+
+</body>
+</html>

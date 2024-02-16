@@ -1,0 +1,97 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title th:text="#{titulo.crearProfesor}"></title>
+</head>
+
+<body>
+
+<div class="container mt-4">
+    <form th:action="@{/profesores/crear}" th:object="${profesor}" method="post">
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col">
+                <h1 th:text="#{titulo.crearProfesor}"></h1>
+            </div>
+            <div class="col">
+                <div>
+                    <button type="submit" class="btn btn-primary" th:text="#{boton.crear}"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label th:text="#{label.nif}"></label>
+                <input class="form-control" th:field="*{nif}"/>
+                <ul class="alert alert-danger" th:if="${#fields.hasErrors('nif')}" th:errors="*{nif}"></ul>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label th:text="#{label.nombre}"></label>
+                <input class="form-control" th:field="*{nombre}"/>
+                <ul class="alert alert-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></ul>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label th:text="#{label.apellido1}"></label>
+                <input class="form-control" th:field="*{apellido1}"/>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label th:text="#{label.apellido2}"></label>
+                <input class="form-control" th:field="*{apellido2}"/>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label th:text="#{label.ciudad}"></label>
+                <input class="form-control" th:field="*{ciudad}"/>
+                <ul class="alert alert-danger" th:if="${#fields.hasErrors('ciudad')}" th:errors="*{ciudad}"></ul>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label th:text="#{label.direccion}"></label>
+                <input class="form-control" th:field="*{direccion}"/>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label th:text="#{label.telefono}"></label>
+                <input class="form-control" th:field="*{telefono}"/>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label th:text="#{label.fecha_nacimiento}"></label>
+                <input class="form-control" th:field="*{fecha_nacimiento}"/>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label th:text="#{label.tipo}"></label>
+                <input class="form-control" th:field="*{tipo}"/>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>
